@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Post Card - Slide Up</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* Reset e Estilos Gerais */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+
+        body {
+            background-color: #111e38; /* Azul escuro do fundo */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        /* Container Principal do Card */
+        .card {
+            width: 360px;
+            height: 500px;
+            position: relative;
+            background-color: #ffffff;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+            overflow: hidden; /* Esconde o texto que está "fora" da tela na parte de baixo */
+            cursor: pointer;
+        }
+
+        /* --- PARTE DA FRENTE (IMAGEM) --- */
+        .card-front {
+            width: 100%;
+            height: 100%;
+            background-image: url('office.jpg');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 30px;
+        }
+
+        .front-title-box {
+            background-color: #ffffff;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .front-title-box h2 {
+            font-size: 28px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            color: #000000;
+            text-transform: uppercase;
+        }
+
+        /* --- CONTEÚDO QUE SOBE (SLIDE UP) --- */
+        .card-overlay {
+            position: absolute;
+            bottom: -100%; /* Começa totalmente escondido abaixo do card */
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #ffffff;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: 40px 35px;
+            text-align: left;
+            /* Transição suave para o efeito de subir */
+            transition: bottom 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        /* Quando passa o mouse no card, o overlay sobe para a posição 0 */
+        .card:hover .card-overlay {
+            bottom: 0;
+        }
+
+        /* Estilização dos textos internos */
+        .back-title {
+            font-size: 28px;
+            font-weight: 700;
+            text-transform: uppercase;
+            color: #000000;
+            letter-spacing: 1px;
+            margin-bottom: 15px;
+        }
+
+        .back-text {
+            font-size: 15px;
+            line-height: 1.6;
+            color: #111111;
+            font-weight: 400;
+        }
+
+        .read-more-btn {
+            background-color: #000000;
+            color: #ffffff;
+            border: none;
+            padding: 14px;
+            font-size: 16px;
+            font-weight: 400;
+            text-transform: lowercase;
+            cursor: pointer;
+            width: 100%;
+            transition: background-color 0.2s ease;
+        }
+
+        .read-more-btn:hover {
+            background-color: #222222;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="card">
+        
+        <div class="card-front">
+            <div class="front-title-box">
+                <h2>POST TITLE</h2>
+            </div>
+        </div>
+
+        <div class="card-overlay">
+            <div>
+                <h2 class="back-title">POST TITLE</h2>
+                <p class="back-text">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel veritatis incidunt suscipit aliquam tenetur! Magnam quisquam, numquam voluptatem harum tempore aut inventore dolores! Voluptatem, omnis neque non perspiciatis ratione!
+                </p>
+            </div>
+            <button class="read-more-btn">read more</button>
+        </div>
+
+    </div>
+
+</body>
+</html>
